@@ -19,14 +19,12 @@ const Yelp ={
 
         if (jsonResponse.businesses){
 
-                return jsonResponse.businesses.map((business) => {
+                return jsonResponse.businesses.map(business => ({
 
-                    console.log('business');
-
-                    return {
+               
 
                             id: business.id,
-                            imageSrc:business.image_url,
+                            imageSrc: business.image_url,
                             name:business.name,
                             address:business.location.address,
                             city:business.location.city,
@@ -34,17 +32,16 @@ const Yelp ={
                             zipCode:business.location.zipCode,
                             category:business.categories[0].title,
                             rating:business.rating,
-                            reviewCount:business.review_count,
+                            reviewCount:business.review_count
 
-                    }
-
-
-          })
+                    
+        }));
         }
-      })
+      });
 
     }
 
-}
+
+};
 
 export default Yelp;
